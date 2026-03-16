@@ -58,7 +58,7 @@ const Navbar = ({ onComingSoon }) => {
                     </button>
 
                     <a
-                        href="www.nidhifreshbasket.in"
+                        href="https://nidhifreshbasket.in/login"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-primary text-white px-5 py-2 rounded-full font-semibold flex items-center gap-2 hover:bg-primary-light transition-all shadow-md active:scale-95"
@@ -116,7 +116,7 @@ const Navbar = ({ onComingSoon }) => {
                     </button>
 
                     <a
-                        href="https://www.nidhifreshbasket.in"
+                        href="https://nidhifreshbasket.in/login"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setMobileMenuOpen(false)}
