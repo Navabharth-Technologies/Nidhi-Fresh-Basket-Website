@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Navabharth-Technologies.github.io/Nidhi-Fresh-Basket-Website",
+  "homepage": "https://www.nidhifreshbasket.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
