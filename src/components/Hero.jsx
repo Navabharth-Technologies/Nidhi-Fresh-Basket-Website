@@ -83,7 +83,7 @@ const Hero = ({ onComingSoon }) => {
                             }}
                         >
                             <MessageCircle size={22} className="text-[#4ade80]" />
-                            {t('buttons.comingSoon')}
+                            Launching Soon
                         </button>
                     </div>
                 </motion.div>

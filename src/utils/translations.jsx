@@ -258,7 +258,7 @@ export const translations = {
             step3Desc: "Get your produce delivered within hours or pick up from us."
         },
         comingSoon: {
-            title: "Nidhi Fresh Basket Online System is Coming Soon!",
+            title: "Nidhi Fresh Basket Online System is Launching Soon!",
             desc: "We are building something fresh for you! Our online ordering system will be active very soon.",
             waText: "In the meantime, you can still place your orders directly on WhatsApp.",
             btnText: "Order on WhatsApp",

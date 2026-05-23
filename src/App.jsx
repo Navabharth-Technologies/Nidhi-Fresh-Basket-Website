@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProducePicks from './components/ProducePicks';
@@ -12,10 +13,16 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import ComingSoon from './components/ComingSoon';
+import Preloader from './components/Preloader';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [isReloading, setIsReloading] = useState(true); // Greet users with premium load experience on mount
+
+  const triggerReload = () => {
+    setIsReloading(true);
+  };
 
   useEffect(() => {
     // scroll to top when coming soon page is shown
@@ -87,26 +94,34 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen">
-      <Navbar onComingSoon={triggerComingSoon} />
-      <main>
-        <Hero onComingSoon={triggerComingSoon} />
-        <ProducePicks onComingSoon={triggerComingSoon} />
-        <ComboOffers onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
-        <DairyProducts onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
-        <Features />
-        <Products onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
-        <HowToOrder />
-        <Gallery />
-        <Contact onComingSoon={triggerComingSoon} />
-      </main>
-      <Footer />
-      <Cart
-        items={cartItems}
-        onUpdateQuantity={updateQuantity}
-        onRemoveItem={removeItem}
-        onCheckout={triggerComingSoon}
-      />
+    <div className="min-h-screen relative overflow-hidden">
+      {isReloading && <Preloader onComplete={() => setIsReloading(false)} />}
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, filter: 'blur(8px)' }}
+        animate={!isReloading ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : { opacity: 0.7, scale: 0.97, filter: 'blur(3px)' }}
+        transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+      >
+        <Navbar onComingSoon={triggerComingSoon} onReload={triggerReload} />
+        <main>
+          <Hero onComingSoon={triggerComingSoon} />
+          <ProducePicks onComingSoon={triggerComingSoon} />
+          <ComboOffers onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
+          <DairyProducts onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
+          <Features />
+          <Products onAddToCart={addToCart} onComingSoon={triggerComingSoon} />
+          <HowToOrder />
+          <Gallery />
+          <Contact onComingSoon={triggerComingSoon} />
+        </main>
+        <Footer />
+        <Cart
+          items={cartItems}
+          onUpdateQuantity={updateQuantity}
+          onRemoveItem={removeItem}
+          onCheckout={triggerComingSoon}
+        />
+      </motion.div>
     </div>
   );
 }

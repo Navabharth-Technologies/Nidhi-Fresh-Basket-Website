@@ -1,0 +1,286 @@
+/* Preloader Stylesheet - Premium Light-Mode Nature Graphics */
+
+:root {
+    --farm-cream: radial-gradient(circle at center, #FFFFFF 0%, #FFFDF8 65%, #F4F8EE 100%);
+    --primary-green: #22C55E;
+    --accent-orange: #F97316;
+    --forest-green: #166534;
+}
+
+/* Fullscreen Overlay with bright natural studio lighting */
+.preloader-overlay.light-theme {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--farm-cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Soft ambient sunlight ray filter overlay */
+.sunlight-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 15%, rgba(250, 204, 21, 0.08) 0%, rgba(254, 240, 138, 0.02) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Floating gold pollen light dust specks */
+.pollen-spec {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253, 224, 71, 0.6) 0%, rgba(234, 179, 8, 0) 75%);
+    filter: blur(0.5px);
+}
+
+/* Floating SVG fruit watermarks in the background layer */
+.floating-fruit-item {
+    filter: drop-shadow(0 10px 15px rgba(22, 163, 74, 0.03));
+}
+
+/* Central Content Presentation Card */
+.preloader-content-card {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 480px;
+    width: 90%;
+}
+
+/* Soft swirling halo background pattern */
+.preloader-swirl-bg {
+    position: absolute;
+    width: 460px;
+    height: 460px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+    animation: elegant-slow-swirl 50s linear infinite;
+}
+
+@media (max-width: 640px) {
+    .preloader-swirl-bg {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Premium Rounded Video Wrapper */
+.premium-video-wrapper {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: 
+        0 15px 35px rgba(34, 197, 94, 0.07),
+        0 4px 10px rgba(0, 0, 0, 0.02),
+        inset 0 0 15px rgba(0,0,0,0.05);
+    background: #ffffff;
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: center-breathe 4s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+    .premium-video-wrapper {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+.premium-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.video-inner-shimmer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.7), inset 0 -3px 8px rgba(0,0,0,0.03);
+    pointer-events: none;
+}
+
+/* Typography branding styles */
+.brand-text-display {
+    color: var(--forest-green);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+}
+
+.tagline-text-display {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 3px;
+}
+
+/* Clean, Light-Mode Loading Track */
+.preloader-progress-wrapper {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+}
+
+@media (max-width: 640px) {
+    .preloader-progress-wrapper {
+        width: 230px;
+    }
+}
+
+.preloader-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(34, 197, 94, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.01);
+}
+
+.preloader-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22C55E 0%, #16A34A 50%, #84CC16 100%);
+    border-radius: 12px;
+    transition: width 0.15s cubic-bezier(0.1, 0.8, 0.25, 1);
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.2);
+}
+
+/* Gliding Sparkle */
+.progress-sparkle-glider {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(50%);
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 6px #ffffff,
+        0 0 10px rgba(34, 197, 94, 0.7);
+}
+
+.preloader-status-container {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.preloader-status {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--forest-green);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.95);
+    animation: text-breathing-glow 2.5s ease-in-out infinite;
+}
+
+.preloader-percentage-counter {
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--forest-green);
+    font-family: 'Outfit', sans-serif;
+    opacity: 0.65;
+}
+
+/* --- PHASE 5: Dual Soft-Cream radial curtains --- */
+.curtain-container {
+    inset: 0;
+    z-index: 20; /* Renders behind content card (z-30) */
+}
+
+.curtain-panel-left,
+.curtain-panel-right {
+    box-shadow: 
+        inset 0 0 80px rgba(132, 204, 22, 0.03),
+        inset 0 0 35px rgba(0, 0, 0, 0.015);
+    overflow: hidden;
+}
+
+/* Fresh light canvas textures */
+.curtain-leaf-texture {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, #FCFDFB 0%, #FAFBF6 60%, #EEF3E8 100%);
+    opacity: 0.98;
+}
+
+.curtain-leaf-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 45% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.img-flipped {
+    transform: scaleX(-1);
+}
+
+
+
+/* Keyframe Swirl */
+@keyframes elegant-slow-swirl {
+    0% {
+        transform: rotate(0deg) scale(0.96);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.04);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.96);
+    }
+}
+
+/* Glowing center breathing */
+@keyframes center-breathe {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 15px 35px rgba(34, 197, 94, 0.07),
+            0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 
+            0 20px 45px rgba(34, 197, 94, 0.15),
+            0 6px 12px rgba(0, 0, 0, 0.04);
+    }
+}
+
+/* Text pulse */
+@keyframes text-breathing-glow {
+    0%, 100% {
+        opacity: 0.8;
+        letter-spacing: 1.5px;
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 1.8px;
+    }
+}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MessageCircle, Languages, UserPlus } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Languages, UserPlus, RefreshCw } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import logo from '../assets/logo.png';
 
-const Navbar = ({ onComingSoon }) => {
+const Navbar = ({ onComingSoon, onReload }) => {
     const { t, lang, toggleLanguage } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,7 +29,10 @@ const Navbar = ({ onComingSoon }) => {
         <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
             <div className="container mx-auto px-4 relative z-10 flex justify-between items-center">
                 <div className="flex items-center">
-                    <a href="#" className="group">
+                    <a 
+                        href="#" 
+                        className="group"
+                    >
                         <div className={`p-2 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:scale-105 ${isScrolled ? 'bg-white h-20' : 'bg-white h-28'}`}>
                             <img src={logo} alt="Nidhi Fresh Basket" className="h-full w-auto object-contain" />
                         </div>
@@ -47,6 +50,16 @@ const Navbar = ({ onComingSoon }) => {
                             {link.name}
                         </a>
                     ))}
+
+                    {/* Reload Button */}
+                    <button
+                        onClick={onReload}
+                        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 transition-all font-bold text-sm hover:scale-105 active:scale-95 ${isScrolled ? 'border-primary/20 text-text-main hover:bg-gray-100' : 'border-white/20 text-white hover:bg-white/10'}`}
+                        title="Reload Site Experience"
+                    >
+                        <RefreshCw size={16} className="transition-transform duration-500 hover:rotate-180 text-primary" />
+                        {lang === 'en' ? 'Reload' : 'ಮರುಲೋಡ್'}
+                    </button>
 
                     {/* Language Toggle */}
                     <button
@@ -69,7 +82,14 @@ const Navbar = ({ onComingSoon }) => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <div className="flex items-center gap-4 md:hidden">
+                <div className="flex items-center gap-3 md:hidden">
+                    <button
+                        onClick={onReload}
+                        className={`p-2 rounded-full border-2 ${isScrolled ? 'border-primary/20 text-text-main' : 'border-white/20 text-white'}`}
+                        title="Reload"
+                    >
+                        <RefreshCw size={18} className="hover:rotate-180 transition-transform duration-500 text-primary" />
+                    </button>
                     <button
                         onClick={toggleLanguage}
                         className={`p-2 rounded-full border-2 ${isScrolled ? 'border-primary/20 text-text-main' : 'border-white/20 text-white'}`}
@@ -102,6 +122,18 @@ const Navbar = ({ onComingSoon }) => {
                             {link.name}
                         </a>
                     ))}
+
+                    {/* Mobile Reload Button */}
+                    <button
+                        onClick={() => {
+                            onReload();
+                            setMobileMenuOpen(false);
+                        }}
+                        className="flex items-center gap-3 bg-gray-100 px-8 py-3 rounded-2xl font-bold text-text-main"
+                    >
+                        <RefreshCw size={22} className="text-primary" />
+                        {lang === 'en' ? 'Reload Site' : 'ಮರುಲೋಡ್ ಮಾಡಿ'}
+                    </button>
 
                     {/* Mobile Language Toggle */}
                     <button
